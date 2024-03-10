@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+	<style>
+		.navs-ul {
+		  list-style-type: none;
+		  margin: 10px;
+		  padding: 0;
+		  width: 200px;
+		  background-color: #f1f1f1;
+		  float: right; /* added this line */
+		}
+		
+		.navs li a {
+		  display: block;
+		  color: #000;
+		  padding: 8px 16px;
+		  text-decoration: none;
+		}
+		
+		.navs li a.active {
+		  background-color: #04AA6D;
+		  color: white;
+		}
+		
+		.navs li a:hover:not(.active) {
+		  background-color: #555;
+		  color: white;
+		}
+		</style>	
+	<div class="fh5co-loader"></div>
+	
+	
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+					{% for v in ourvision %}
+			   	<li style="background-image: url({{v.image.url}});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 text-center slider-text">
+				   				<div class="slider-text-inner">
+				   					<h1>OUR VISION</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<br>
+		<div class="aboutuspage-section">
+			<div class="container">
+			  <div class="row justify-content-center">
+				<div class="col-lg-8 wow fadeInUp">
+				  <div>
+					
+					<p>{{v.vision | safe | linebreaks}}</p>
+					{% endfor %}   
+				  </div>
+				</div>
+				
+			  </div>
+			</div>
+		  </div>
+		  
+	</div><!-- END container-wrap -->
+	{% endblock %}
+

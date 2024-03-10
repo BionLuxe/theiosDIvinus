@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+		
+	<div class="fh5co-loader"></div>
+	
+	
+	<div class="container-wrap">
+		
+		<div class="col-lg-10 mt-5">
+            <h1 class="text-center mb-5 wow fadeInUp">Our Staff</h1>
+            <div class="row justify-content-center">
+              {% for x in member.all|dictsort:"id" %}
+              <div class="col-md-6 col-lg-4 wow zoomIn">
+                  <div class="card-doctor">
+                      <div class="header">
+                          <img src="{{x.member_image.url}}" alt="">
+                      </div>
+                      <div class="body">
+                          <p class="text-xl mb-0">{{x.member_name}}</p>
+                          <span class="text-sm text-grey" style="white-space: nowrap;">{{x.member_title}}</span>
+                          <p> <a href="{% url 'memberdetails' memberdetails_id=x.id %}">Read More </a></p>  
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+  
+            </div>
+          </div>
+	 
+    </div>
+	</div><!-- END container-wrap -->
+	
+
+  {% endblock %}
+

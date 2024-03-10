@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+		
+	
+
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(static/images/project.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 text-center slider-text">
+				   				<div class="slider-text-inner">
+				   					<h1>Church Projects</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<div id="fh5co-services" class="fh5co-light-grey">
+            <div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Church Projects</h2>
+					<p>These are ongoing Projects the church is carrying out.</p>
+				</div>
+			</div>
+			<div class="row">
+                {% for p in project %}
+				<div class="col-md-4 animate-box">
+					<div class="services">
+						<a href="#" class="img-holder"><img class="img-responsive" src="{{p.coverphoto.url}}"></a>
+						<div class="desc">
+							<h3><a href="#">{{p.title}}</a></h3>
+							<p>{{p.details |truncatechars:100}}.</p>
+							<a href="{% url 'detail' p.id %}">Read More <i class="icon-arrow-right3"></i></a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	
+	</div><!-- END container-wrap -->
+
+
+	{% endblock %}

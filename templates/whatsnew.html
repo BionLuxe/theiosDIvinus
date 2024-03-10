@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    #header {
+        max-width: 100%;
+        margin: 20px auto;
+        background: linear-gradient(to right, white, rgb(182, 236, 229), rgb(106, 233, 216));
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1,
+    h2,
+    h5 {
+        color: #333;
+    }
+
+    #header p {
+        color: #555;
+        text-align: center;
+    }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .numbering {
+        margin-left: 5px;
+        margin-right: 5px;
+        color: black; /* Change the color here */
+        font-weight: bold; /* You can customize the font-weight if needed */
+        display: inline-block;
+    }
+
+    .title h5 {
+        position: relative;
+        display: inline-block;
+        text-decoration: underline;
+        padding: 10px;
+        color: blue;
+    }
+</style>
+
+<div class="container-wrap">
+    <div id="header">
+        <h1>Whats New ?</h1>
+    </div>
+
+    {% for new in newquestions %}
+    <div class="title">
+        <span class="numbering">{{ forloop.counter }}.</span>
+        <a href="{% url 'answer' question_id=new.id %}">
+            <h5>{{ new.question | safe }}</h5>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

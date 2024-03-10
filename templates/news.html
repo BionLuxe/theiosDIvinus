@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-wrap">
+	<aside id="fh5co-hero">
+		<div class="flexslider">
+			<ul class="slides">
+				<li style="background-image: url(static/images/project.jpg);">
+					<div class="overlay"></div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 text-center slider-text">
+								<div class="slider-text-inner">
+									<h1>News</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</aside>
+	<div id="fh5co-news">
+		<div class="row animate-box">
+			<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+				<h2>Our News</h2>
+			</div>
+		</div>
+		<div class="row">
+			{% for n in new %}
+			<div class="col-md-3 animate-box">
+				<div class="news">
+					<a href="#" class="img-holder"><img class="img-responsive" src="{{n.image.url}}" alt=""></a>
+					<div class="desc">
+						<span class="date">{{n.date}}</span>
+						<h3><a href="{% url 'newdetails' n.id %}">{{n.name}}</a></h3>
+						<p>{{n.details | safe |truncatechars:100}}</p>
+						<a href="{% url 'newdetails' n.id %}"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
+</div>
+</div>
+
+</div><!-- END container-wrap -->
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+		
+	
+
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(static/images/project.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 text-center slider-text">
+				   				<div class="slider-text-inner">
+				   					<h1>Church Projects</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<div id="fh5co-events">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Theios Divinus Altar Church Projects</h2>
+				</div>
+			</div>
+			<div class="row">
+				{% for ev in events %}
+				<div class="col-md-4 animate-box">
+					<div class="events-entry">
+						<span class="date">{{ev.date}}</span>
+						<h3><a href="#">{{ev.name}}</a></h3>
+						<p>{{ev.details}}.</p>
+						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	
+	</div><!-- END container-wrap -->
+
+
+	{% endblock %}

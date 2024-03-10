@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+		
+	
+
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(static/images/testimony.png);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 text-center slider-text">
+				   				<div class="slider-text-inner">
+				   					<h1>Church Testimonials</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<div id="fh5co-services" class="fh5co-light-grey">
+            <div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Church Testimonials</h2>
+					<p>These are testimonials from different people</p>
+				</div>
+			</div>
+			<div class="row">
+				{% if testify %}
+					{% for t in testify %}
+						<div class="col-md-4 animate-box">
+							<div class="services">
+								<a href="#" class="img-holder"><img class="img-responsive" src="{{t.image.url}}"></a>
+								<div class="desc">
+									<h3><a href="#">{{t.names}}</a></h3>
+									<p>{{t.testimony|truncatechars:100}}.</p>
+									<a href="{% url 'testimonydetail' t.id %}">Read More <i class="icon-arrow-right3"></i></a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<div class="col-md-12">
+						<p>There are no testimonials yet.</p>
+					</div>
+				{% endif %}
+			</div>
+			
+		</div>
+	
+	</div><!-- END container-wrap -->
+
+
+	{% endblock %}

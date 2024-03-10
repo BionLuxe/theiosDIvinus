@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Add your CSS styling here */
+   
+
+    #bibleQADiv {
+        max-width: 700px;
+        margin: 20px auto;
+        background: linear-gradient(to right, white,  rgb(182, 236, 229), rgb(106, 233, 216));
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1, h2, h5 {
+        color: #333;
+    }
+
+    #bibleQADiv p {
+        color: #555;
+        text-align: center;
+    }
+
+    .search-container {
+        position: relative;
+        width: 50%; /* Adjust the width as needed */
+        margin-top: 8px;
+        margin-right: 16px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        font-size: 17px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: black; /* White text color */
+    }
+
+    input[type=text]::placeholder {
+        color: black; /* White placeholder text color */
+    }
+
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .row-container {
+        display: flex;
+        justify-content: space-around; /* Adjust as needed */
+        align-items: center;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .bibleQADivrow {
+        max-width: 300px;
+        background: linear-gradient(to right, rgb(1, 75, 59),  rgb(2, 160, 139), rgb(40, 194, 173));
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+    }
+
+    .bibleQADivrow img {
+        width: 100px;
+        height: auto;
+    }
+
+    .bibleQADivrow h3 {
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .bibleQADivrow p {
+        color: rgb(231, 225, 225);
+        font-size: 16px;
+    }
+
+
+    .bibleQADivrowcommon {
+        max-width: 300px;
+        background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(203, 250, 243) rgb(199, 240, 234), rgb(201, 247, 240));
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid white;
+    }
+    .bibleQADivrowcommonfirst {
+        max-width: 300px;
+        background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(203, 250, 243) rgb(199, 240, 234), rgb(201, 247, 240));
+        padding: 20px;
+        
+        
+        height: 300px;
+       
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      
+    }
+    .bibleQADivrowcommon h4 {
+        color: rgb(21, 63, 21);
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .bibleQADivrowcommon p {
+        color: rgb(21, 63, 21);
+        font-size: 16px;
+    }
+    .bibleQADivrowcommon button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(21, 63, 21);
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .container-wrap.row-container {
+        background: linear-gradient(to right, rgb(230, 247, 243), rgb(211, 248, 243), rgb(146, 250, 236));
+    }
+
+    @media (max-width: 768px) {
+        .container-wrap {
+            flex-direction: column;
+            align-items: center;
+        }
+        .bibleQADivrow{
+            margin: 10px 0; 
+        }
+        .bibleQADivrowcommon{
+            margin: 10px 0; 
+        }
+    }
+</style>
+
+
+
+<div id="bibleQADiv">
+    <h1>753,384</h1>
+    <h1>Bible Questions Answered</h1>
+    <p>Do you have a question about God, Jesus, the Bible, or theology? Do you need help understanding a Bible verse or passage? Are there any spiritual issues in your life for which you need advice or counsel?</p>
+    <div class="search-container">
+        <form action="{% url 'search' %}" method="get">
+            <input type="text" placeholder="Search.." id="searchInput" name="q">
+            <button type="submit" class="search-icon">&#128269;</button>
+        </form>
+    </div>
+</div>
+
+<div class="container-wrap row-container">
+    <div class="bibleQADivrow" >
+        
+        <a href="/top20">    <img src="{%static 'images/question.png'%}" alt="Image description"></a>
+        <a href="/top20">  <h3>Top 20 Questions</h3></a>
+        <a href="/top20"> <p>See our top 20 Questions asked Bible Questions.</p></a>
+    </div>
+
+    <div class="bibleQADivrow" style="background: linear-gradient(to right, rgb(1, 75, 59),  rgb(1, 114, 99), rgb(24, 129, 115));">
+        <a href="/whatsnew">  <img src="{%static 'images/star.png'%}" alt="Image description"></a>
+       <a href="/whatsnew">   <h3>Whats New</h3></a>
+        <a href="/whatsnew">  <p>See our 100 newest articles.</p></a>
+    </div>
+
+    <div class="bibleQADivrow">
+     <a href="/article">   <img src="{%static 'images/article.jpg'%}" alt="Image description"></a>
+     <a href="/article">   <h3>Top 20 Articles</h3></a>
+     <a href="/article">   <p>See our top 20 most visited articles</p></a>
+    </div>
+</div>
+
+
+
+
+
+<div class="container-wrap row-container">
+
+    <div class="bibleQADivrowcommonfirst">
+        <h4>Bible Questions Answered</h4>
+        <p>With over 9,100 answers to frequently asked Bible questions published online, approximately 85% of the questions we are asked already have answers available to you instantly. Got Questions? The Bible has answers. We’ll help you find them</p>
+    </div>
+
+    <div class="bibleQADivrowcommon">
+        <h4>Find Common Questions</h4>
+        <p>View our Frequently Asked Bible Questions Archive.</p>
+        <button>See Archive</button>
+    </div>
+
+    <div class="bibleQADivrowcommon">
+        <h4>Ask a Question</h4>
+        <p>Can't find an answer for your Bible question?</p>
+        <button>Ask a Question</button>
+    </div>
+</div>
+{% endblock %}

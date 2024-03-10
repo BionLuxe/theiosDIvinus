@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+
+	<div class="container-wrap">
+
+		<video autoplay loop muted playsinline width="100%" height="500px">
+			<source src="{%static 'images/banner.mp4'%}">
+			Your browser does not support the video tag.
+		</video>
+		
+		</aside>
+
+		<div id="fh5co-intro">
+			<div class="row animate-box">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<h2>Living in God's Amazing Grace!</h2>
+					<span>We are open Sunday to Monday</span>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div id="fh5co-counter" class="fh5co-counters">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center animate-box">
+					<!-- <p>We have a fun facts far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+					</div>
+			</div>
+			<div class="row animate-box" style="background:url('static/images/img2.webp') repeat fixed;">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="row ">
+						<div class="col-md-3 col-sm-6 col-xs-6 text-center">
+							<a href="{%url 'history'%}"> 
+							<span style ="  display: flex;
+							align-items: center;
+							justify-content: center; height: 60px; font-size: 19px; background-color: rgb(5, 51, 158);color: white;width: 170px"; class="fh5co-counter-label">Our History</span>
+						</a>
+					
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-6 text-center" style="margin-left: 60px;">
+							<a href="{%url 'whatwebelieve'%}"> 
+							<span style="display: flex;
+							align-items: center;
+							justify-content: center;height: 60px; font-size: 19px; background-color: rgb(5, 51, 158);color: white;width: 180px;" class="fh5co-counter-label">What We Believe</span>
+							</a>
+					</div>
+						<div class="col-md-3 col-sm-6 col-xs-6 text-center" style="margin-left: 60px;">
+							<a href="{%url 'vision'%}"> 
+							<span style="   display: flex;
+							align-items: center;
+							justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">Our Vision</span>
+							</a>
+					</div>
+					
+						<div class="col-md-3 col-sm-6 col-xs-6 text-center" >
+							<a href="{%url 'ministryname'%}"> 
+							<span style="   display: flex;
+							align-items: center;
+							justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">Ministry Name</span>
+							</a>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6 text-center" style="margin-left: 60px;">
+						<a href="{%url 'staff'%}"> 
+						<span style="   display: flex;
+						align-items: center;
+						justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">Our Staff</span>
+						</a>
+				</div>
+					<div class="col-md-3 col-sm-6 col-xs-6 text-center" style="margin-left: 60px;">
+						<a href="{%url 'gallery'%}"> 
+						<span style="   display: flex;
+						align-items: center;
+						justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">Gallery</span>
+						</a>
+				</div>
+					<div class="col-md-3 col-sm-6 col-xs-6 text-center" >
+						<a href="{%url 'tdaccf'%}"> 
+						<span style="   display: flex;
+						align-items: center;
+						justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">TDACCF</span>
+						</a>
+				</div>
+				
+					<div class="col-md-3 col-sm-6 col-xs-6 text-center" style="margin-left: 60px;">
+						<a href="#"> 
+						<span style="   display: flex;
+						align-items: center;
+						justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">Donate</span>
+						</a>
+				</div>
+					<div class="col-md-3 col-sm-6 col-xs-6 text-center" style="margin-left: 60px;">
+						<a href="{% url 'testify'%}"> 
+						<span style="   display: flex;
+						align-items: center;
+						justify-content: center;height: 60px;font-size: 20px; background-color: rgb(5, 51, 158);color: white;width: 170px;" class="fh5co-counter-label">Testimonials</span>
+						</a>
+				</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fh5co-services" class="fh5co-light-grey">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Ministries</h2>
+				</div>
+			</div>
+			<div class="row">
+				{% for m in ministry %}
+				<div class="col-md-4 animate-box">
+					<div class="services">
+						<a href="#" class="img-holder"><img class="img-responsive" src="{{m.image.url}}" ></a>
+						<div class="desc">
+							<h3><a href="#">{{m.title}}</a></h3>
+							<p>{{m.details |truncatechars:150 | safe}}</p>
+							<a href="{% url 'ministrydetails' ministrydetails_id=m.id %}">Read More <i class="icon-arrow-right3"></i></a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div id="fh5co-sermon" >
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Our Sermons</h2>
+				</div>
+			</div>
+			<div class="row">
+				{% for s in sermonss|slice:":3" %}
+				<div class="col-md-4 text-center animate-box">
+					<div class="sermon-entry">
+						<div class="sermon" >
+							<iframe width="100%" height="315" src="{{ s.youtube_url }}" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<h3>{{s.caption}}</h3>
+						
+						
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+				<h5><a href="{% url 'sermons' %}"> Watch More</a></h5>
+			</div>
+		</div>
+		<div id="fh5co-bible-verse">
+			<div class="overlay"></div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row animate-box">
+						<div class="owl-carousel owl-carousel-fullwidth">
+							{% for q in quote%}
+							<div class="item">
+								<div class="bible-verse-slide active text-center">
+									<blockquote>
+										<p>&ldquo;{{q.Quote}}&rdquo;</p>
+										<span>{{q.From}}</span>
+									</blockquote>
+								</div>
+							</div>
+							{% endfor %}
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div id="fh5co-events">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Our Events</h2>
+				</div>
+			</div>
+			<div class="row">
+				{% for ev in events %}
+				<div class="col-md-4 animate-box">
+					<div class="events-entry">
+						<span class="date">{{ev.date}}</span>
+						<h3><a href="{% url 'eventdetails' ev.id %}">{{ev.name}}</a></h3>
+						<p>{{ev.details |truncatechars:100}}.</p>
+						<a href="{% url 'event' %}">More <i class="icon-arrow-right3"></i></a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div> -->
+		<div id="fh5co-news" class="fh5co-light-grey">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Our News</h2>
+					<p>Theios Divinus Altar Church News</p>
+				</div>
+			</div>
+			<div class="row">
+				{% for n in new %}
+				<div class="col-md-3 animate-box">
+					<div class="news">
+						<a href="{% url 'newdetails' news_id=n.id %}" class="img-holder"><img class="img-responsive" src="{{n.image.url}}" alt=""></a>
+						<div class="desc">
+							<span class="date">{{n.date}}</span>
+							<h3><a href="{% url 'newdetails' news_id=n.id %}">{{n.name}}</a></h3>
+							<p>{{n.details| safe |truncatechars:100}}</p>
+							<a href="{% url 'newdetails' n.id %}"></a>
+
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	{% endblock %}

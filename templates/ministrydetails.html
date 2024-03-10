@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+		
+	<div class="fh5co-loader"></div>
+	
+	
+	<div class="container-wrap">
+		<div class="col-lg-10 mt-5">
+            <h1 class="text-center mb-5 wow fadeInUp">{{ministrydetails.title}}</h1>
+            <div class="row justify-content-center">
+              <div class="col-md-6 col-lg-4 wow zoomIn">
+                <div class="card-doctor">
+                  <div class="header">
+                    <img src="{{ministrydetails.image.url}}" alt="">
+                    <span class="text-sm text-grey">{{ministrydetails.title}}</span>
+
+                  </div>
+         
+                </div>
+              </div>
+  
+            </div>
+          </div>
+		<br>
+		<div class="aboutuspage-section">
+			<div class="container">
+			  <div class="row justify-content-center">
+				<div class="col-lg-8 wow fadeInUp">
+					
+				  <div class="">
+					  <p fontsize="25">{{ministrydetails.details| linebreaks | safe}}</p>
+					  
+
+				  </div>
+				</div>
+			
+			  </div>
+			</div>
+		  </div>
+		
+	</div><!-- END container-wrap -->
+	{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+		
+	<div class="fh5co-loader"></div>
+	
+	
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+					<li style="background-image: url({{testimonydetails.image.url}});"></li>
+
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 text-center slider-text">
+				   				<div class="slider-text-inner">
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<br>
+		<div class="aboutuspage-section">
+			<div class="container">
+			  <div class="row justify-content-center">
+				<div class="col-lg-8 wow fadeInUp">
+					
+					<h1 class="text-center mb-3">{{testimonydetails.names}}</h1>
+				  <div class="">
+			
+					  <p fontsize="25">{{testimonydetails.testimony | linebreaks}}</p>
+					  
+ 
+				  </div>
+				</div>
+				<div class="col-lg-10 mt-5">
+				  <h1 class="text-center mb-5 wow fadeInUp"></h1>
+				  <div class="row justify-content-center">
+					{% for pt in testimonyphotos %}
+					<div class="col-md-6 col-lg-4 wow zoomIn">
+					  <div class="card-doctor">
+						<div class="header">
+						  <img src="{{pt.images.url}}" alt="">
+						 
+						</div>
+					
+					  </div>
+					</div>
+				  {% endfor%}
+		
+				  </div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					</div>
+				
+					<div class="col-md-4 text-center animate-box">
+						<div class="sermon-entry">
+							<div class="sermon" >
+                                {% if testimonydetails.video %}
+                                <video class="sermon" src="{{testimonydetails.video.url}}" controls></video>
+                            {% else %}
+                                <p>No video available.</p>
+                            {% endif %}							</div>
+						</div>
+					</div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+	</div><!-- END container-wrap -->
+
+	
+
+	{% endblock %}

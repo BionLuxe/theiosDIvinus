@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block content %}	
+
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(static/images/b2.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 text-center slider-text">
+				   				<div class="slider-text-inner">
+				   					<h1>Watch Our Sermons</h1>
+										<h2>You can Watch our Sermons from here.</h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<div id="fh5co-sermon">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Our Sermons</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+				
+				</div>
+				{% for s in sermon %}
+				<div class="col-md-4 text-center animate-box">
+					<div class="sermon-entry">
+						<div class="sermon">
+							<iframe width="100%" height="315" src="{{ s.youtube_url }}" frameborder="0" allowfullscreen></iframe>
+
+						</div>
+						<h3>{{ s.caption }}</h3>
+						<span>{{ s.pastor_name }}</span>
+						<p><span>{{ s.datetime }}</span></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+				</div>
+				{% for a in audio%}
+				<div class="col-md-4 text-center animate-box">
+					<div class="sermon-entry">
+						<div class="audiosermon" >
+							<audio controls>
+								<source src="{{a.audio.url}}" >
+								  Update your browser. Your browser does not support  audio
+							  </audio>
+						</div>
+						<h3>{{a.caption}}</h3>
+						<span>{{a.pastor_name}}</span>
+						<p><span>{{a.datetime}}</span></p>
+						
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+				</div>
+				{% for l in lugandaaudio%}
+				<div class="col-md-4 text-center animate-box">
+					<div class="sermon-entry">
+						<div class="audiosermon" >
+							<audio controls>
+								<source src="{{l.audio.url}}" >
+								  Update your browser. Your browser does not support  audio
+							  </audio>
+						</div>
+						<h3>{{l.caption}}</h3>
+						<span>{{l.pastor_name}}</span>
+						<p><span>{{l.datetime}}</span></p>
+						
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+
+	{% endblock %}
