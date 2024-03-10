@@ -7,7 +7,7 @@ load_dotenv(BASE_DIR / '.env')
 
 SECRET_KEY = 'django-insecure-@tmnx8_=o(3a=i6l#ac&sm3(2==)taolup8l&m=#y$vowl447y'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # SECRET_KEY = os.getenv('SECRET')
 # DEBUG = False
